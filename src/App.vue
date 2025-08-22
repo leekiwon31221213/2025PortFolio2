@@ -2,11 +2,13 @@
   <div class="wrap" id="portFolioContainer">
     <Header></Header>
     <Info></Info>
+    <About></About>
   </div>
 </template>
 <script setup>
-import Header from "./components/header/Header";
-import Info from "./components/section/Info.vue";
+import Header from './components/header/Header'
+import Info from './components/section/MainIntro.vue'
+import About from './components/section/About.vue'
 </script>
 
 <style lang="scss">

@@ -1,26 +1,19 @@
 <template>
-  <section class="section" id="info">
+  <section class="section1" id="main-intro">
     <div class="section__inner">
       <ul class="section__inner-content">
         <li>
-          <h2>
-            창의적이고 감각적인 <br />
-            <strong>프론트엔드 개발자</strong> <br />
-            이기원 입니다.
-          </h2>
+          <h2 v-html="mainIntro.title"></h2>
 
-          <p>
-            웹퍼블리셔에서 시작하여 사용자 중심의 인터페이스를 설계하는 프론트엔드 개발자로 성장하고
-            있습니다.
-          </p>
+          <p>{{ mainIntro.description }}</p>
 
           <div class="demo-wrap">
-            <a href="#" class="glass-btn" lang="en">About Me</a>
+            <a href="#About" class="glass" lang="en">About Me</a>
           </div>
         </li>
 
         <li class="img-box">
-          <div class="font-end-info-icon glass-btn">
+          <div class="font-end-info-icon glass">
             <span>Frontend Dev</span>
           </div>
           <div class="dev-icon"></div>
@@ -35,8 +28,27 @@
   </section>
 </template>
 
+<script>
+export default {
+  data() {
+    /* About 소개 */
+    return {
+      mainIntro: {
+        title: `
+            창의적이고 감각적인 <br />
+            <strong>프론트엔드 개발자</strong> <br />
+            이기원 입니다.
+        `,
+        description: `
+          웹퍼블리셔에서 시작하여 사용자 중심의 인터페이스를 설계하는 프론트엔드 개발자로 성장하고 있습니다.
+          `,
+      },
+    }
+  },
+}
+</script>
 <style lang="scss">
-section {
+.section1 {
   .section__inner {
     width: 90%;
     margin: 0 auto;
@@ -59,6 +71,7 @@ section {
       font-size: 2.8rem;
       font-weight: 200;
       margin: 4.5rem auto 5.6rem;
+      line-height: 1.3;
     }
 
     .section__inner-content {
@@ -91,13 +104,14 @@ section {
         .font-end-info-icon {
           position: absolute;
           z-index: 1;
-          left: 30%;
+          left: 25%;
           top: 30px;
           span {
             &::before {
               content: '';
               position: absolute;
               left: 20px;
+              top: 22px;
               width: 15px;
               height: 15px;
               background-color: #0a9356;
@@ -121,7 +135,7 @@ section {
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('/assets/image/dev_icon.png') no-repeat center center;
+            background: url('/assets/image/intro/dev_icon.png') no-repeat center center;
           }
         }
         .design-icon {
@@ -140,14 +154,14 @@ section {
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('/assets/image/figma_icon.png') no-repeat center center;
+            background: url('/assets/image/intro/figma_icon.png') no-repeat center center;
           }
         }
       }
     }
   }
 }
-.glass-btn {
-  @include glass-btn(220px, 60px, 16px, 180%, 2rem, #fff);
+.glass {
+  @include glass(220px, 60px, 4px, 180%, 2rem, #fff);
 }
 </style>
