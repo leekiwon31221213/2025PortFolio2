@@ -3,12 +3,14 @@
     <Header></Header>
     <Info></Info>
     <About></About>
+    <Skill></Skill>
   </div>
 </template>
 <script setup>
 import Header from './components/header/Header'
-import Info from './components/section/MainIntro.vue'
-import About from './components/section/About.vue'
+import Info from './components/section/MainIntro'
+import About from './components/section/About'
+import Skill from './components/section/Skill'
 </script>
 
 <style lang="scss">
