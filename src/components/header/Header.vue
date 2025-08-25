@@ -3,25 +3,36 @@
     <nav>
       <ul>
         <li>
-          <a href="#none" lang="en">About</a>
+          <button @click="scrollToAbout" lang="en">About</button>
         </li>
         <li>
-          <a href="#none" lang="en">Work</a>
+          <button lang="en">Work</button>
         </li>
         <li>
-          <a href="#none" lang="en">Skill</a>
+          <button lang="en">Skill</button>
         </li>
         <li>
-          <a href="#none" lang="en">Project</a>
+          <button lang="en">Project</button>
         </li>
         <li>
-          <a href="#none" lang="en">Contact</a>
+          <button lang="en">Contact</button>
         </li>
       </ul>
     </nav>
   </header>
 </template>
-
+<script>
+export default {
+  methods: {
+    scrollToAbout() {
+      const aboutSection = document.getElementById('about')
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    },
+  },
+}
+</script>
 <style lang="scss">
 header {
   height: 105px;
@@ -45,7 +56,7 @@ nav {
       &:last-child {
         margin-right: 0;
       }
-      a {
+      button {
         color: $white;
         -webkit-text-fill-color: $white;
         font-size: 2.3rem;

@@ -8,7 +8,7 @@
           <p>{{ mainIntro.description }}</p>
 
           <div class="demo-wrap">
-            <a href="#About" class="glass" lang="en">About Me</a>
+            <button class="glass" lang="en" @click="scrollToAbout">About Me</button>
           </div>
         </li>
 
@@ -44,6 +44,14 @@ export default {
           `,
       },
     }
+  },
+  methods: {
+    scrollToAbout() {
+      const aboutSection = document.getElementById('about')
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    },
   },
 }
 </script>
