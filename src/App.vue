@@ -3,6 +3,7 @@
     <Header></Header>
     <Info></Info>
     <About></About>
+    <Career></Career>
     <Skill></Skill>
   </div>
 </template>
@@ -10,6 +11,7 @@
 import Header from './components/header/Header'
 import Info from './components/section/MainIntro'
 import About from './components/section/About'
+import Career from './components/section/Career'
 import Skill from './components/section/Skill'
 </script>
 

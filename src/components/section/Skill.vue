@@ -1,75 +1,77 @@
 <template>
-  <section id="skill" class="section3">
-    <h1 lang="en">Skill & Tool</h1>
-    <p class="desc">
-      웹퍼블리싱 기초부터 모던 프론트엔드 기술까지 <br />
-      시멘틱 태그를 활용한 기본에 충실한 마크업과 스타일링부터, 최신 프레임워크와 렌더링 기법을
-      적용한 현대적인 웹 개발까지 폭넓게 다룹니다.
-    </p>
+  <section id="skill" class="section4">
+    <div class="skill__inner">
+      <h1 lang="en">Skill & Tool</h1>
+      <p class="desc">
+        웹퍼블리싱 기초부터 모던 프론트엔드 기술까지 <br />
+        시멘틱 태그를 활용한 기본에 충실한 마크업과 스타일링부터, 최신 프레임워크와 렌더링 기법을
+        적용한 현대적인 웹 개발까지 폭넓게 다룹니다.
+      </p>
 
-    <ul class="skills-box">
-      <!-- 스킬 -->
-      <li class="skill__inner front-skill glass glass">
-        <ul class="skill-list">
-          <li>
-            <div class="icon-box front">
-              <img :src="front.icon" :alt="front.alt" />
-            </div>
-            <h3>{{ front.title }}</h3>
-          </li>
-          <li v-for="(skill, index) in front.skills" :key="index" :type="skill.type">
-            <p class="skill-name" lang="en">{{ skill.name }}</p>
-            <div class="skill-level">
-              <div class="skill-bar" :style="{ '--target-width': skill.level + '%' }">
-                <span class="skill-text">{{ skill.level }}%</span>
+      <ul class="skills-box">
+        <!-- 스킬 -->
+        <li class="skill__inner front-skill glass glass">
+          <ul class="skill-list">
+            <li>
+              <div class="icon-box front">
+                <img :src="front.icon" :alt="front.alt" />
               </div>
-            </div>
-          </li>
-        </ul>
-      </li>
-      <!-- 디자인 -->
-      <li class="skill__inner design-skill glass">
-        <ul class="skill-list">
-          <li>
-            <div class="icon-box design">
-              <img :src="design.icon" :alt="design.alt" />
-            </div>
-            <h3>{{ design.title }}</h3>
-          </li>
-          <li v-for="(skill, index) in design.skills" :key="index">
-            <p class="skill-name" lang="en">{{ skill.name }}</p>
-          </li>
-        </ul>
-      </li>
-      <!-- 협업 -->
-      <li class="skill__inner collaboration-skill glass">
-        <ul class="skill-list">
-          <li>
-            <div class="icon-box collaboration">
-              <img :src="collaboration.icon" :alt="collaboration.alt" />
-            </div>
-            <h3>{{ collaboration.title }}</h3>
-          </li>
-          <li v-for="(skill, index) in collaboration.skills" :key="index">
-            <p class="skill-name" lang="en">{{ skill.name }}</p>
-          </li>
-        </ul>
-      </li>
-      <!-- 기타 -->
-      <li class="skill__inner etc-skill glass">
-        <ul class="skill-list">
-          <li>
-            <div class="icon-box etc">
-              <img :src="etc.icon" :alt="etc.alt" />
-            </div>
-            <h3>{{ etc.title }}</h3>
-          </li>
-          <li v-for="(skill, index) in etc.skills" :key="index">
-            <p class="skill-name" lang="en">{{ skill.name }}</p>
-          </li>
-        </ul>
-      </li>
-    </ul>
+              <h3>{{ front.title }}</h3>
+            </li>
+            <li v-for="(skill, index) in front.skills" :key="index" :type="skill.type">
+              <p class="skill-name" lang="en">{{ skill.name }}</p>
+              <div class="skill-level">
+                <div class="skill-bar" :style="{ '--target-width': skill.level + '%' }">
+                  <span class="skill-text">{{ skill.level }}%</span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <!-- 디자인 -->
+        <li class="skill__inner design-skill glass">
+          <ul class="skill-list">
+            <li>
+              <div class="icon-box design">
+                <img :src="design.icon" :alt="design.alt" />
+              </div>
+              <h3>{{ design.title }}</h3>
+            </li>
+            <li v-for="(skill, index) in design.skills" :key="index">
+              <p class="skill-name" lang="en">{{ skill.name }}</p>
+            </li>
+          </ul>
+        </li>
+        <!-- 협업 -->
+        <li class="skill__inner collaboration-skill glass">
+          <ul class="skill-list">
+            <li>
+              <div class="icon-box collaboration">
+                <img :src="collaboration.icon" :alt="collaboration.alt" />
+              </div>
+              <h3>{{ collaboration.title }}</h3>
+            </li>
+            <li v-for="(skill, index) in collaboration.skills" :key="index">
+              <p class="skill-name" lang="en">{{ skill.name }}</p>
+            </li>
+          </ul>
+        </li>
+        <!-- 기타 -->
+        <li class="skill__inner etc-skill glass">
+          <ul class="skill-list">
+            <li>
+              <div class="icon-box etc">
+                <img :src="etc.icon" :alt="etc.alt" />
+              </div>
+              <h3>{{ etc.title }}</h3>
+            </li>
+            <li v-for="(skill, index) in etc.skills" :key="index">
+              <p class="skill-name" lang="en">{{ skill.name }}</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </section>
 </template>
 
@@ -120,8 +122,13 @@ export default {
 
 <style lang="scss">
 #skill {
-  width: 90%;
-  margin: 0 auto 25rem;
+  background-color: $sub-bg;
+
+  .skill__inner {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 25rem;
+  }
   h1 {
     padding: 145px 0 35px 0;
     text-align: center;
