@@ -1,32 +1,27 @@
 <template>
-  <section id="career" class="section4">
-    <h1>Career</h1>
+  <section id="education" class="section3">
+    <h1>Education</h1>
 
-    <ul class="career__inner">
-      <li v-for="(career, index) in displayedCareers" :key="index" class="glass">
+    <ul class="education__inner">
+      <li v-for="(education, index) in education" :key="index" class="glass">
         <div class="img-box">
-          <img :src="career.logo" :alt="career.alt" />
+          <img :src="education.logo" :alt="education.alt" />
         </div>
-        <div class="company-business-box">
-          <h3>{{ career.companyName }}</h3>
-          <p>{{ career.business }}</p>
+        <div class="educatio-business-box">
+          <h3>{{ education.edu }}</h3>
+          <p>{{ education.span }}</p>
         </div>
-        <p class="team-txt">{{ career.team }}</p>
-        <p>
-          {{ career.work1 }} <br />
-          {{ career.work2 }}
-        </p>
+        <p class="team-txt">{{ education.study }}</p>
       </li>
     </ul>
-
-    <button type="button" @click="loadMore()" id="more-btn">더 보기</button>
   </section>
+
   <section id="career" class="section4">
     <h1>Career</h1>
 
     <ul class="career__inner">
       <li v-for="(career, index) in displayedCareers" :key="index" class="glass">
-        <div class="img-box">
+        <div class="img-box" :class="career.alt === '증산클라비어' ? 'jc' : ''">
           <img :src="career.logo" :alt="career.alt" />
         </div>
         <div class="company-business-box">
@@ -41,7 +36,13 @@
       </li>
     </ul>
 
-    <button type="button" @click="loadMore()" id="more-btn">더 보기</button>
+    <div class="btn-box">
+      <button type="button" @click="loadMore()" id="more-btn">
+        더 보기
+
+        <FontAwesomeIcon :icon="['fas', 'angle-down']" />
+      </button>
+    </div>
   </section>
 </template>
 
@@ -52,16 +53,16 @@ export default {
       visibledCount: 2,
       education: [
         {
-          logo: '',
-          alt: '',
-          academy: '이젠 아카데미(종각)',
+          logo: 'src/assets/image/career/Ez_logo.jpg',
+          alt: '이젠아카데미',
+          edu: '이젠 아카데미(종각)',
           study: '모바일 UI/UX 웹&앱디자인(웹퍼블리셔)',
           span: '2022.07 ~ 2022.12 / 5개월',
         },
         {
-          logo: '',
-          alt: '',
-          academy: '신라대학교(부산)',
+          logo: 'src/assets/image/career/silla_logo.jpg',
+          alt: '신라대학교',
+          edu: '신라대학교(부산)',
           study: '음악학과 피아노 전공',
           span: '2014.03 ~ 2018.02 / 4년',
         },
@@ -106,7 +107,7 @@ export default {
           work1: '홈쇼핑, 스마트스토어 운영 지원 / 자사몰 마케팅, 고객관리, 바이럴마케팅 등',
         },
         {
-          logo: '',
+          logo: 'src/assets/image/career/jc_logo.jpg',
           alt: '증산클라비어',
           companyName: '증산클라비어',
           business: '피아노 학원',
@@ -126,7 +127,7 @@ export default {
     loadMore() {
       // console.log('더 보기 클릭됨')
       if (this.visibledCount < this.career.length) {
-        this.visibledCount += 1
+        this.visibledCount += 2
       }
     },
   },
@@ -134,7 +135,8 @@ export default {
 </script>
 
 <style lang="scss">
-#career {
+#career,
+#education {
   h1 {
     padding: 145px 0 35px 0;
     text-align: center;
@@ -143,10 +145,11 @@ export default {
     font-weight: 600;
     letter-spacing: 5px;
   }
-  .career__inner {
+  .career__inner,
+  .education__inner {
     position: relative;
     width: 90%;
-    margin: 0 auto 250px;
+    margin: 0 auto 120px;
 
     &::before {
       content: '';
@@ -170,8 +173,14 @@ export default {
         img {
           border-radius: 6px;
         }
+        &.jc {
+          img {
+            width: 59px;
+          }
+        }
       }
-      .company-business-box {
+      .company-business-box,
+      .educatio-business-box {
         display: flex;
         h3 {
           font-size: 2.1rem;
@@ -183,9 +192,9 @@ export default {
         margin: 1.2rem 0 1rem 0;
       }
 
-      $circleColor: $icon-bg1, $icon-bg2, $icon-bg3, $icon-bg4;
+      $circleColor: $icon-bg1, $icon-bg2, $icon-bg3, $icon-bg4, $icon-bg5, $icon-bg6;
 
-      @for $i from 1 through 4 {
+      @for $i from 1 through 5 {
         &:nth-child(#{$i}) {
           @include glass(100%, 100%, 4px, 180%, 2rem, #fff);
           border-radius: 30px;
@@ -217,8 +226,53 @@ export default {
       }
     }
   }
-  #more-btn {
-    color: #fff;
+  .btn-box {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 120px;
+    #more-btn {
+      color: #fff;
+      max-width: 225px;
+      width: 100%;
+      padding: 2rem;
+      border-radius: 3rem;
+      border: 1px solid $border;
+      font-size: 1.7rem;
+      transition: 0.3s ease-in-out;
+      font-weight: 600;
+
+      &:hover {
+        border: unset;
+        background-color: #fff;
+        color: #333;
+        .fa-angle-down {
+          animation: arrow_down 1s infinite ease-in-out;
+        }
+      }
+    }
+  }
+}
+#education {
+  .education__inner {
+    margin: 0 auto;
+    .img-box {
+      img {
+        width: 59px;
+      }
+    }
+  }
+}
+
+@keyframes arrow_down {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(2.5px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }
 </style>
