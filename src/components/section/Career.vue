@@ -1,25 +1,47 @@
 <template>
-  <section id="career" class="section3">
+  <section id="career" class="section4">
     <h1>Career</h1>
 
     <ul class="career__inner">
-      <p>
-        <li v-for="(career, index) in career" :key="index" clas="glass">
-          <div class="img-box">
-            <img :src="career.logo" :alt="career.alt" />
-          </div>
-          <div class="company-business-box">
-            <h3>{{ career.companyName }}</h3>
-            <p>{{ career.business }}</p>
-          </div>
-          <p class="team-txt">{{ career.team }}</p>
-          <p>
-            {{ career.work1 }} <br />
-            {{ career.work2 }}
-          </p>
-        </li>
-      </p>
+      <li v-for="(career, index) in displayedCareers" :key="index" class="glass">
+        <div class="img-box">
+          <img :src="career.logo" :alt="career.alt" />
+        </div>
+        <div class="company-business-box">
+          <h3>{{ career.companyName }}</h3>
+          <p>{{ career.business }}</p>
+        </div>
+        <p class="team-txt">{{ career.team }}</p>
+        <p>
+          {{ career.work1 }} <br />
+          {{ career.work2 }}
+        </p>
+      </li>
     </ul>
+
+    <button type="button" @click="loadMore()" id="more-btn">더 보기</button>
+  </section>
+  <section id="career" class="section4">
+    <h1>Career</h1>
+
+    <ul class="career__inner">
+      <li v-for="(career, index) in displayedCareers" :key="index" class="glass">
+        <div class="img-box">
+          <img :src="career.logo" :alt="career.alt" />
+        </div>
+        <div class="company-business-box">
+          <h3>{{ career.companyName }}</h3>
+          <p>{{ career.business }}</p>
+        </div>
+        <p class="team-txt">{{ career.team }}</p>
+        <p>
+          {{ career.work1 }} <br />
+          {{ career.work2 }}
+        </p>
+      </li>
+    </ul>
+
+    <button type="button" @click="loadMore()" id="more-btn">더 보기</button>
   </section>
 </template>
 
@@ -27,6 +49,24 @@
 export default {
   data() {
     return {
+      visibledCount: 2,
+      education: [
+        {
+          logo: '',
+          alt: '',
+          academy: '이젠 아카데미(종각)',
+          study: '모바일 UI/UX 웹&앱디자인(웹퍼블리셔)',
+          span: '2022.07 ~ 2022.12 / 5개월',
+        },
+        {
+          logo: '',
+          alt: '',
+          academy: '신라대학교(부산)',
+          study: '음악학과 피아노 전공',
+          span: '2014.03 ~ 2018.02 / 4년',
+        },
+      ],
+
       career: [
         {
           logo: 'src/assets/image/career/pravang_logo.jpg',
@@ -65,8 +105,30 @@ export default {
           team: '마케팅팀 · 프로 (2021.05 ~ 2022.05 / 1년)',
           work1: '홈쇼핑, 스마트스토어 운영 지원 / 자사몰 마케팅, 고객관리, 바이럴마케팅 등',
         },
+        {
+          logo: '',
+          alt: '증산클라비어',
+          companyName: '증산클라비어',
+          business: '피아노 학원',
+          team: '학원 강사 (2014.12 ~ 2020.02 / 5년 3개월)',
+          work1: '원생 관리 및 피아노 교육',
+        },
       ],
     }
+  },
+  computed: {
+    displayedCareers() {
+      return this.career.slice(0, this.visibledCount)
+    },
+  },
+
+  methods: {
+    loadMore() {
+      // console.log('더 보기 클릭됨')
+      if (this.visibledCount < this.career.length) {
+        this.visibledCount += 1
+      }
+    },
   },
 }
 </script>
@@ -84,7 +146,7 @@ export default {
   .career__inner {
     position: relative;
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 250px;
 
     &::before {
       content: '';
@@ -154,6 +216,9 @@ export default {
         margin-bottom: 1.5rem;
       }
     }
+  }
+  #more-btn {
+    color: #fff;
   }
 }
 </style>
