@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+
 /* 폰트어썸 */
 // Font Awesome core
 import { library } from '@fortawesome/fontawesome-svg-core'

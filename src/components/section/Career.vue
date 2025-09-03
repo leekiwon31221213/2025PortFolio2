@@ -53,7 +53,7 @@ export default {
       visibledCount: 2,
       education: [
         {
-          logo: 'src/assets/image/career/Ez_logo.jpg',
+          logo: 'src/assets/image/career/ez_logo.jpg',
           alt: '이젠아카데미',
           edu: '이젠 아카데미(종각)',
           study: '모바일 UI/UX 웹&앱디자인(웹퍼블리셔)',

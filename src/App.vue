@@ -5,6 +5,7 @@
     <About></About>
     <Career></Career>
     <Skill></Skill>
+    <Project></Project>
   </div>
 </template>
 <script setup>
@@ -13,6 +14,7 @@ import Info from './components/section/MainIntro'
 import About from './components/section/About'
 import Career from './components/section/Career'
 import Skill from './components/section/Skill'
+import Project from './components/section/Project'
 </script>
 
 <style lang="scss">
